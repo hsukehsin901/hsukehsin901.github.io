@@ -44,7 +44,7 @@ category_tags:
   translation: [找碴英語]
 
 # 留言系統（Waline）的伺服器網址；留空就不顯示留言區
-waline_server: ""
+waline_server: "https://zhaocha-comments.vercel.app"
 
 exclude:
   - README.md

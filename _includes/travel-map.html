@@ -12,18 +12,33 @@
         subdomains: 'abcd', maxZoom: 12
       }).addTo(map);
       var pin = L.divIcon({ className: 'trip-pin', html: '<span></span>', iconSize: [16, 16], iconAnchor: [8, 8], popupAnchor: [0, -8] });
-      var countries = {}, n = 0, bounds = [];
+      var spots = {}, countries = {}, abroad = 0;
       trips.forEach(function (t) {
+        if (!t.domestic) abroad++;
         var link = t.post ? '/travel/' + t.post + '/' : (t.tag ? '/travel/?tag=' + encodeURIComponent(t.tag) : '');
         t.places.forEach(function (p) {
-          countries[p.c] = 1; n++; bounds.push(p.ll);
-          var html = '<strong>' + t.name + '</strong><br><span class="pop-meta">' + t.year + ' · ' + p.n + '（' + p.c + '）</span>' +
-            (link ? '<br><a href="' + link + '">看這趟的文章 →</a>' : '<br><span class="pop-meta">文章還在路上</span>');
-          L.marker(p.ll, { icon: pin, title: p.n }).addTo(map).bindPopup(html);
+          if (p.c !== '台灣') countries[p.c] = 1;
+          var key = p.n;
+          if (!spots[key]) spots[key] = { p: p, visits: [] };
+          spots[key].visits.push({ t: t, link: link });
         });
       });
+      Object.keys(spots).forEach(function (k) {
+        var s = spots[k], v = s.visits;
+        var html = '<strong>' + s.p.n + '</strong><span class="pop-meta">（' + s.p.c + '）' + (v.length > 1 ? '・去過 ' + v.length + ' 次' : '') + '</span><ul class="pop-list">' +
+          v.map(function (x) {
+            var t = x.t, meta = [t.days ? t.days + ' 天' : '', t.group ? '跟團' : ''].filter(Boolean).join('・');
+            var label = t.year + '　' + t.name + (meta ? '<span class="pop-meta">（' + meta + '）</span>' : '');
+            return '<li>' + (x.link ? '<a href="' + x.link + '">' + label + ' →</a>' : label) + '</li>';
+          }).join('') + '</ul>';
+        L.marker(s.p.ll, { icon: v.length > 1 ? bigPin(v.length) : pin, title: s.p.n }).addTo(map).bindPopup(html, { maxHeight: 260 });
+      });
+      function bigPin(n) {
+        var z = Math.min(26, 14 + n * 1.5);
+        return L.divIcon({ className: 'trip-pin many', html: '<span style="width:' + z + 'px;height:' + z + 'px">' + n + '</span>', iconSize: [z, z], iconAnchor: [z / 2, z / 2], popupAnchor: [0, -z / 2] });
+      }
       document.getElementById('trip-map-note').textContent =
-        '已插上 ' + n + ' 根圖釘，走過 ' + Object.keys(countries).length + ' 個國家和地區，持續增加中。點圖釘看看那趟旅行。';
+        abroad + ' 趟出國旅行，走過 ' + Object.keys(countries).length + ' 個國家和地區、' + Object.keys(spots).length + ' 個地方。數字大的圖釘代表去過好幾次，點點看。';
     })();
   </script>
 </section>

@@ -204,3 +204,7 @@ main { padding: 0 1rem 2rem; }
 #trip-map .leaflet-popup-content a, #trip-map .leaflet-control-attribution a { color: var(--accent); }
 .pop-meta { color: #877c6b; font-size: .8rem; }
 @media (max-width: 600px) { .trip-map { margin: 0 0 1.8rem; } #trip-map { height: 300px; } }
+
+.trip-pin.many span { display: flex; align-items: center; justify-content: center; color: #fbf7ee; font: 600 10px/1 var(--serif); }
+.pop-list { list-style: none; margin: .4rem 0 0; padding: 0; }
+.pop-list li { padding: .1rem 0; border-top: 1px dotted #ddd2bd; font-size: .85rem; }

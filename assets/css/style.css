@@ -30,10 +30,9 @@ a:hover { text-decoration: underline; text-underline-offset: .2em; }
 [hidden] { display: none !important; }
 
 /* ---------- 書名頁頁首 ---------- */
-.masthead { text-align: center; padding: 3rem 1rem 1.5rem; }
+.masthead { text-align: center; padding: 2.6rem 1rem 1.5rem; }
 .brand { display: inline-block; color: var(--ink); }
 .brand:hover { text-decoration: none; }
-.brand-kicker { display: block; font-size: .75rem; letter-spacing: .5em; color: var(--muted); margin-bottom: .3rem; padding-left: .5em; }
 .brand-name { display: inline-flex; align-items: center; gap: .6rem; font-size: 2.4rem; font-weight: 900; letter-spacing: .3em; padding-left: .3em; line-height: 1.3; }
 .seal {
   display: inline-flex; flex-direction: column; align-items: center;

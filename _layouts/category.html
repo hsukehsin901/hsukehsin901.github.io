@@ -1,7 +1,60 @@
 ---
 layout: default
 ---
-<h1>{{ site.category_names[page.category] }}</h1>
-<p class="lead">{{ site.category_descriptions[page.category] }}</p>
 {% assign posts = site.categories[page.category] %}
-{% include post-list.html posts=posts %}
+<div class="sheet">
+  <header class="chapter-head">
+    <p class="ch-no">{{ site.chapter_numbers[page.category] }}</p>
+    <h1>{{ site.category_names[page.category] }}</h1>
+    <p class="chapter-desc">{{ site.category_descriptions[page.category] }}</p>
+    <p class="chapter-count">共 {{ posts | size }} 篇</p>
+  </header>
+
+  {% assign subs = site.category_tags[page.category] %}
+  {% if subs and subs.size > 1 %}
+  <div class="filters" role="group" aria-label="子分類">
+    <button type="button" class="chip" data-tag="" aria-pressed="true">全部</button>
+    {% for t in subs %}<button type="button" class="chip" data-tag="{{ t }}" aria-pressed="false">{{ t }}</button>{% endfor %}
+  </div>
+  {% endif %}
+
+  {% assign years = posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+  {% for y in years %}
+  <section class="year" data-year="{{ y.name }}">
+    <h2 class="year-title">{{ y.name }}</h2>
+    <ul class="index">
+      {% for post in y.items %}
+      <li data-tags="|{{ post.tags | join: '|' }}|">
+        <a href="{{ post.url | relative_url }}">
+          <span class="ix-title">{{ post.title }}</span>
+          <span class="leader" aria-hidden="true"></span>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-m/%-d" }}</time>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</div>
+
+<script>
+  (function () {
+    var chips = document.querySelectorAll('.chip');
+    chips.forEach(function (c) {
+      c.addEventListener('click', function () {
+        var tag = c.dataset.tag;
+        chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c); });
+        document.querySelectorAll('.year').forEach(function (sec) {
+          var shown = 0;
+          sec.querySelectorAll('li').forEach(function (li) {
+            var ok = !tag || li.dataset.tags.indexOf('|' + tag + '|') > -1;
+            li.hidden = !ok; if (ok) shown++;
+          });
+          sec.hidden = shown === 0;
+        });
+      });
+    });
+    var q = new URLSearchParams(location.search).get('tag');
+    if (q) chips.forEach(function (c) { if (c.dataset.tag === q) c.click(); });
+  })();
+</script>

@@ -4,24 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title and page.url != '/' %}{{ page.title }}｜{% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 120 }}">
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 120 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-<body>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav class="site-nav" aria-label="主選單">
-        {% for c in site.category_names %}<a href="{{ '/' | append: c[0] | append: '/' | relative_url }}">{{ c[1] }}</a>{% endfor %}
-        <a href="{{ '/about/' | relative_url }}">關於我</a>
-      </nav>
-    </div>
+<body class="{{ page.body_class }}">
+  <header class="masthead">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="brand-kicker">版小二的筆記本</span>
+      <span class="brand-name">{{ site.title }}<span class="seal" aria-hidden="true"><span>找</span><span>碴</span></span></span>
+    </a>
+    <nav class="toc-nav" aria-label="章節">
+      {% for c in site.category_names %}<a href="{{ '/' | append: c[0] | append: '/' | relative_url }}"{% if page.category == c[0] or page.categories.first == c[0] %} aria-current="page"{% endif %}>{{ c[1] }}</a>{% endfor %}
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>關於我</a>
+    </nav>
   </header>
-  <main class="wrap">
+
+  <main>
     {{ content }}
   </main>
-  <footer class="site-footer">
-    <div class="wrap">© {{ 'now' | date: '%Y' }} {{ site.title }}</div>
+
+  <footer class="colophon">
+    <p class="fleuron" aria-hidden="true">❦</p>
+    <p>© {{ 'now' | date: '%Y' }} {{ site.title }} · 2017 年起寫於臉書粉專，2026 年搬來這裡</p>
   </footer>
+
+  <div class="lightbox" hidden><img alt=""></div>
+  <script>
+    // 點照片放大
+    (function () {
+      var box = document.querySelector('.lightbox'), img = box.querySelector('img');
+      document.addEventListener('click', function (e) {
+        var t = e.target;
+        if (t.matches('.gallery img, .figure img')) { img.src = t.src; box.hidden = false; }
+        else if (!box.hidden && box.contains(t)) { box.hidden = true; img.src = ''; }
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') box.hidden = true; });
+    })();
+  </script>
 </body>
 </html>

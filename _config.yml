@@ -1,5 +1,6 @@
-title: （暫定名稱）
-description: 童話、旅遊、碎碎念與翻譯心得。
+title: 找碴人生
+author: 版小二
+description: 讀童話找碴、出門旅行找碴、連做夢也在找碴。一個翻譯人的筆記本。
 lang: zh-Hant
 url: "https://hsukehsin901.github.io"
 baseurl: ""
@@ -7,19 +8,33 @@ timezone: Asia/Taipei
 
 permalink: /:categories/:title/
 markdown: kramdown
+excerpt_separator: "\n\n"
 
-# 分類設定：slug 對應 _posts 裡 front matter 的 categories
+# 分類（章節）設定：順序就是目錄的順序
 category_names:
   fairy-tales: 童話
   travel: 旅遊
   musings: 碎碎念
   translation: 翻譯心得
 
+chapter_numbers:
+  fairy-tales: 第一章
+  travel: 第二章
+  musings: 第三章
+  translation: 第四章
+
 category_descriptions:
-  fairy-tales: 說給大人聽的故事。
-  travel: 走過的路，看過的風景。
-  musings: 日常的雜念與隨想。
-  translation: 翻譯路上的觀察與心得。
+  fairy-tales: 讀格林原著，順手找碴。童話真的不是給兒童看的。
+  travel: 走過的路、吃過的飯、猜不透的奇怪東西。
+  musings: 連載小說、周公寄來的夢，和日常的雜念。
+  translation: 一個譯者對字句的執念，從英文片語開始。
+
+# 每個分類底下的子分類（就是文章的 tags），顯示成篩選按鈕
+category_tags:
+  fairy-tales: [格林童話, 神話與傳說, 其他故事]
+  travel: [2012歐澳泰百日遊, 奧瑞行, 川藏行, 新疆, 馬來西亞, 沖繩, 泰國, 韓國, 台灣, 旅遊猜謎]
+  musings: [死用說明, 周公, 日常]
+  translation: [找碴英語]
 
 exclude:
   - README.md

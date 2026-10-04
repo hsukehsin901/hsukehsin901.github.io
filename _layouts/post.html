@@ -1,15 +1,28 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header>
-    <p class="meta">
-      <a href="{{ '/' | append: page.categories.first | append: '/' | relative_url }}">{{ site.category_names[page.categories.first] }}</a>
-      · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
-    </p>
+{% assign cat = page.categories.first %}
+{% assign list = site.categories[cat] %}
+{% for p in list %}{% if p.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+{% assign newer_i = i | minus: 1 %}{% assign older_i = i | plus: 1 %}
+<article class="sheet post">
+  <header class="post-head">
+    <p class="ch-no"><a href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ site.chapter_numbers[cat] }} · {{ site.category_names[cat] }}</a></p>
     <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
+      {% for t in page.tags limit: 3 %}<a class="tag" href="{{ '/' | append: cat | append: '/?tag=' | append: t | relative_url }}">{{ t }}</a>{% endfor %}
+    </p>
   </header>
+
   <div class="content">
     {{ content }}
   </div>
+
+  <p class="fleuron" aria-hidden="true">❦</p>
+
+  <nav class="pager" aria-label="上一篇與下一篇">
+    {% if older_i < list.size %}{% assign o = list[older_i] %}<a class="prev" href="{{ o.url | relative_url }}"><small>上一篇</small>{{ o.title }}</a>{% else %}<span></span>{% endif %}
+    {% if i > 0 %}{% assign n = list[newer_i] %}<a class="next" href="{{ n.url | relative_url }}"><small>下一篇</small>{{ n.title }}</a>{% endif %}
+  </nav>
 </article>

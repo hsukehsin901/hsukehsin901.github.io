@@ -1,6 +1,6 @@
 media:
-  input: assets/images
-  output: /assets/images
+  input: assets/images/uploads
+  output: /assets/images/uploads
 
 content:
   - name: posts
@@ -40,6 +40,13 @@ content:
             - { value: travel, label: 旅遊 }
             - { value: musings, label: 碎碎念 }
             - { value: translation, label: 翻譯心得 }
+      - name: tags
+        type: string
+        label: 子分類（例如：格林童話、奧瑞行、周公、日常）
+        list: true
+      - name: description
+        type: string
+        label: 摘要（列表裡顯示的一兩句話，可留空）
       - name: body
         type: rich-text
         label: 內容

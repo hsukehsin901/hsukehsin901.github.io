@@ -1,20 +1,53 @@
 ---
 layout: default
 title: 首頁
+body_class: home
 ---
-<section class="intro">
-  <h1>{{ site.title }}</h1>
-  <p class="lead">{{ site.description }}</p>
-</section>
+<div class="spread">
+  <section class="leaf leaf-left">
+    <h2 class="leaf-title">目錄</h2>
+    <ol class="contents">
+      {% for c in site.category_names %}
+      {% assign n = site.categories[c[0]] | size %}
+      <li>
+        <a href="{{ '/' | append: c[0] | append: '/' | relative_url }}">
+          <span class="ch-no">{{ site.chapter_numbers[c[0]] }}</span>
+          <span class="ch-name">{{ c[1] }}</span>
+          <span class="leader" aria-hidden="true"></span>
+          <span class="ch-count">{{ n }} 篇</span>
+        </a>
+        <p>{{ site.category_descriptions[c[0]] }}</p>
+      </li>
+      {% endfor %}
+    </ol>
 
-<ul class="cat-grid">
-  {% for c in site.category_names %}
-  <li><a href="{{ '/' | append: c[0] | append: '/' | relative_url }}">
-    <strong>{{ c[1] }}</strong>
-    <span>{{ site.category_descriptions[c[0]] }}</span>
-  </a></li>
-  {% endfor %}
-</ul>
+    <div class="preface">
+      <h3>序</h3>
+      <p>2017 年，一個譯者買了本英文版格林童話，讀著讀著，忍不住開始找碴。後來找碴的範圍越來越大：旅途上的怪東西、夢裡的荒唐劇情、英文片語的字面意思⋯⋯</p>
+      <p>臉書越來越難用，於是搬了家。這裡是「找碴人生」的新住址。</p>
+    </div>
 
-<h2>最新文章</h2>
-{% include post-list.html posts=site.posts %}
+    {% assign all = site.posts %}
+    <p class="random"><button type="button" id="random-page" data-urls="{% for p in all %}{{ p.url | relative_url }}{% unless forloop.last %}|{% endunless %}{% endfor %}">隨手翻開一頁 →</button></p>
+  </section>
+
+  <section class="leaf leaf-right">
+    <h2 class="leaf-title">最近寫的</h2>
+    <ul class="entries">
+      {% for post in site.posts limit: 10 %}
+      <li>
+        <p class="entry-meta"><a href="{{ '/' | append: post.categories.first | append: '/' | relative_url }}">{{ site.category_names[post.categories.first] }}</a> · <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%-m.%-d" }}</time></p>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="entry-desc">{{ post.description | truncate: 60 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+<script>
+  document.getElementById('random-page').addEventListener('click', function () {
+    var u = this.dataset.urls.split('|');
+    location.href = u[Math.floor(Math.random() * u.length)];
+  });
+</script>

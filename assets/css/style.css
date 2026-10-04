@@ -105,6 +105,7 @@ main { padding: 0 1rem 2rem; }
 .post-head { text-align: center; margin-bottom: 2.5rem; }
 .post-head .ch-no a { color: var(--muted); }
 .post-head h1 { font-size: 1.85rem; font-weight: 900; line-height: 1.45; margin: .4rem 0 .8rem; letter-spacing: .05em; }
+.post-sub { margin: -.4rem 0 .8rem; font-size: .9rem; color: var(--muted); letter-spacing: .05em; }
 .post-meta { font-size: .82rem; color: var(--muted); margin: 0; }
 .tag { display: inline-block; font-size: .75rem; color: var(--accent); border: 1px solid var(--accent-soft); background: var(--accent-soft); border-radius: 999px; padding: 0 .6rem; margin-left: .4rem; line-height: 1.7; }
 .content { font-size: 1.02rem; }

@@ -1,0 +1,28 @@
+title: （暫定名稱）
+description: 童話、旅遊、碎碎念與翻譯心得。
+lang: zh-Hant
+url: "https://hsukehsin901.github.io"
+baseurl: ""
+timezone: Asia/Taipei
+
+permalink: /:categories/:title/
+markdown: kramdown
+
+# 分類設定：slug 對應 _posts 裡 front matter 的 categories
+category_names:
+  fairy-tales: 童話
+  travel: 旅遊
+  musings: 碎碎念
+  translation: 翻譯心得
+
+category_descriptions:
+  fairy-tales: 說給大人聽的故事。
+  travel: 走過的路，看過的風景。
+  musings: 日常的雜念與隨想。
+  translation: 翻譯路上的觀察與心得。
+
+exclude:
+  - README.md
+  - .pages.yml
+  - Gemfile
+  - Gemfile.lock

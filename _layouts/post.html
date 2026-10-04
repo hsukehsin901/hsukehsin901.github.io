@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<article class="post">
+  <header>
+    <p class="meta">
+      <a href="{{ '/' | append: page.categories.first | append: '/' | relative_url }}">{{ site.category_names[page.categories.first] }}</a>
+      · <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
+    </p>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="content">
+    {{ content }}
+  </div>
+</article>

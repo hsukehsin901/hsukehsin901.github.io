@@ -17,6 +17,7 @@
     </a>
     <nav class="toc-nav" aria-label="章節">
       {% for c in site.nav_names %}{% assign key = c[0] %}<a href="{{ '/' | append: key | append: '/' | relative_url }}"{% if page.category == key or page.categories.first == key %} aria-current="page"{% endif %}>{{ c[1] }}</a>{% endfor %}
+      <a href="{{ '/books/' | relative_url }}"{% if page.url == '/books/' %} aria-current="page"{% endif %}>書架</a>
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>關於我</a>
     </nav>
   </header>
@@ -39,6 +40,16 @@
     pageviewCount({ serverURL: '{{ site.waline_server }}', path: '{{ page.url }}' });
   </script>
   {% endif %}
+  <script>
+    // 點了才顯示信箱（防止自動抓 email 的程式）
+    document.querySelectorAll('.reveal-mail').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var m = atob(b.dataset.m).split('').reverse().join('');
+        var a = document.createElement('a'); a.href = 'mailto:' + m; a.textContent = m; a.className = 'mail-shown';
+        b.replaceWith(a);
+      });
+    });
+  </script>
   <script>
     // 點照片放大
     (function () {

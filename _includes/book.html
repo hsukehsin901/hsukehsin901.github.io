@@ -1,0 +1,10 @@
+{%- assign b = include.b -%}
+{%- assign parts = b.title | split: '：' -%}
+{%- assign main = parts[0] -%}
+{%- assign sub = b.title | remove_first: main | remove_first: '：' -%}
+<li class="book{% if b.award %} awarded{% endif %}">
+  <p class="b-title">《{{ main }}》{% if b.award %}<span class="award">{{ b.award }}</span>{% endif %}</p>
+  {% if sub != "" %}<p class="b-sub">{{ sub }}</p>{% endif %}
+  {% if b.en %}<p class="b-en">{{ b.en }}</p>{% endif %}
+  <p class="b-meta">{{ b.publisher }} · {{ b.date | replace: '-', '.' }}{% if b.note %} · {{ b.note }}{% endif %}</p>
+</li>

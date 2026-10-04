@@ -12,10 +12,17 @@ excerpt_separator: "\n\n"
 
 # 分類（章節）設定：順序就是目錄的順序
 category_names:
+  fairy-tales: 找碴童話
+  travel: 找碴世界
+  musings: 找碴人生
+  translation: 找碴英語教室
+
+# 頁首選單用的短名稱
+nav_names:
   fairy-tales: 童話
-  travel: 旅遊
-  musings: 碎碎念
-  translation: 翻譯心得
+  travel: 世界
+  musings: 人生
+  translation: 英語教室
 
 chapter_numbers:
   fairy-tales: 第一章

@@ -8,15 +8,16 @@ body_class: home
     <h2 class="leaf-title">目錄</h2>
     <ol class="contents">
       {% for c in site.category_names %}
-      {% assign n = site.categories[c[0]] | size %}
+      {% assign key = c[0] %}
+      {% assign n = site.categories[key] | size %}
       <li>
         <a href="{{ '/' | append: c[0] | append: '/' | relative_url }}">
-          <span class="ch-no">{{ site.chapter_numbers[c[0]] }}</span>
+          <span class="ch-no">{{ site.chapter_numbers[key] }}</span>
           <span class="ch-name">{{ c[1] }}</span>
           <span class="leader" aria-hidden="true"></span>
           <span class="ch-count">{{ n }} 篇</span>
         </a>
-        <p>{{ site.category_descriptions[c[0]] }}</p>
+        <p>{{ site.category_descriptions[key] }}</p>
       </li>
       {% endfor %}
     </ol>
@@ -34,7 +35,7 @@ body_class: home
   <section class="leaf leaf-right">
     <h2 class="leaf-title">最近寫的</h2>
     <ul class="entries">
-      {% for post in site.posts limit: 10 %}
+      {% for post in site.posts limit: 4 %}
       <li>
         <p class="entry-meta"><a href="{{ '/' | append: post.categories.first | append: '/' | relative_url }}">{{ site.category_names[post.categories.first] }}</a> · <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%-m.%-d" }}</time></p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

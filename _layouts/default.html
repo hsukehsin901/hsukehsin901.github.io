@@ -17,7 +17,7 @@
       <span class="brand-name">{{ site.title }}<span class="seal" aria-hidden="true"><span>找</span><span>碴</span></span></span>
     </a>
     <nav class="toc-nav" aria-label="章節">
-      {% for c in site.category_names %}<a href="{{ '/' | append: c[0] | append: '/' | relative_url }}"{% if page.category == c[0] or page.categories.first == c[0] %} aria-current="page"{% endif %}>{{ c[1] }}</a>{% endfor %}
+      {% for c in site.nav_names %}{% assign key = c[0] %}<a href="{{ '/' | append: key | append: '/' | relative_url }}"{% if page.category == key or page.categories.first == key %} aria-current="page"{% endif %}>{{ c[1] }}</a>{% endfor %}
       <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>關於我</a>
     </nav>
   </header>

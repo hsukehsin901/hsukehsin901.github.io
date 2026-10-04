@@ -21,6 +21,38 @@ layout: default
 
   <p class="fleuron" aria-hidden="true">❦</p>
 
+  {% if site.waline_server != "" %}
+  <section class="comments" aria-label="留言">
+    <h2 class="comments-title">留言</h2>
+    <div id="waline"></div>
+  </section>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+  <script type="module">
+    import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+    init({
+      el: '#waline',
+      serverURL: '{{ site.waline_server }}',
+      path: '{{ page.url }}',
+      lang: 'zh-TW',
+      login: 'disable',
+      requiredMeta: ['nick'],
+      meta: ['nick', 'mail'],
+      imageUploader: false,
+      search: false,
+      reaction: false,
+      pageview: false,
+      dark: '@media (prefers-color-scheme: dark)',
+      locale: {
+        placeholder: '想找碴、想吐槽、想說點什麼都歡迎～（暱稱必填，email 可不填，不會公開）',
+        sofa: '還沒有人留言，來當第一個找碴的人吧！',
+        nick: '暱稱',
+        mail: 'Email（選填）',
+        submit: '送出',
+      },
+    });
+  </script>
+  {% endif %}
+
   <nav class="pager" aria-label="上一篇與下一篇">
     {% if older_i < list.size %}{% assign o = list[older_i] %}<a class="prev" href="{{ o.url | relative_url }}"><small>上一篇</small>{{ o.title }}</a>{% else %}<span></span>{% endif %}
     {% if i > 0 %}{% assign n = list[newer_i] %}<a class="next" href="{{ n.url | relative_url }}"><small>下一篇</small>{{ n.title }}</a>{% endif %}

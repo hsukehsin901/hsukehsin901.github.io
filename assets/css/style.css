@@ -140,7 +140,8 @@ main { padding: 0 1rem 2rem; }
   html { font-size: 17px; }
   .masthead { padding: 2rem 1rem 1rem; }
   .brand-name { font-size: 1.9rem; }
-  .toc-nav a { padding: 0 .65rem; }
+  .toc-nav { font-size: .88rem; }
+  .toc-nav a { padding: 0 .5rem; }
   main { padding: 0 0 1.5rem; }
   .sheet, .leaf { padding: 2.2rem 1.25rem; border-radius: 0; }
   .gallery { margin-left: 0; margin-right: 0; grid-template-columns: repeat(2, 1fr); gap: .35rem; }
@@ -169,3 +170,25 @@ main { padding: 0 1rem 2rem; }
 .views { margin: 0 0 .3rem; letter-spacing: .1em; }
 .views-inline { margin-left: .3rem; }
 .waline-pageview-count { font-variant-numeric: tabular-nums; }
+
+/* ---------- 書架 ---------- */
+.shelf-sec { margin-bottom: 2.4rem; }
+.shelf-year { font-size: .85rem; color: var(--muted); letter-spacing: .2em; margin: 1.4rem 0 .4rem; font-weight: 600; }
+.books { list-style: none; margin: 0; padding: 0; }
+.book { padding: .7rem 0 .75rem; border-bottom: 1px dotted var(--line); }
+.book:last-child { border-bottom: 0; }
+.book p { margin: 0; line-height: 1.6; }
+.b-title { font-weight: 600; font-size: 1.02rem; }
+.b-title.small { font-weight: 400; font-size: .92rem; }
+.b-sub { font-size: .85rem; color: var(--muted); }
+.b-en { font-size: .8rem; color: var(--muted); font-style: italic; letter-spacing: 0; }
+.b-meta { font-size: .78rem; color: var(--muted); margin-top: .15rem !important; letter-spacing: .05em; }
+.award { display: inline-block; margin-left: .5rem; font-size: .72rem; font-weight: 600; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 3px; padding: 0 .35rem; line-height: 1.6; transform: rotate(-3deg) translateY(-.1em); }
+.book.awarded { background: linear-gradient(90deg, var(--accent-soft), transparent 70%); padding-left: .6rem; border-radius: 2px; }
+
+.shelf-contact { text-align: center; font-size: .88rem; color: var(--muted); margin: 2rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.page h2 { font-size: 1.05rem; letter-spacing: .2em; color: var(--accent); margin: 2.4rem 0 .8rem; }
+
+.reveal-mail { font: inherit; font-size: .9rem; cursor: pointer; color: var(--accent); background: transparent; border: 1px dashed var(--accent); border-radius: 999px; padding: .15rem .9rem; }
+.reveal-mail:hover { background: var(--accent-soft); }
+.page .mail-line { text-align: left; }

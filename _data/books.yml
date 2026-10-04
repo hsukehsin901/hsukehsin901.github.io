@@ -1,0 +1,57 @@
+# 版小二的書架。新書加在對應的區塊最上面即可。
+# award: 有得獎就填獎項名稱；en: 原文書名（可省略）
+
+authored:
+  - title: 搭乘廉價航空出國去
+    year: 2014
+    publisher: 晨星
+    role: 作者（筆名：小摳）
+
+translations:
+  - { title: 黃金如何驅動世界？：從地緣博弈到虛擬貨幣熱潮，看懂永恆金屬鑄造全球財富規則的力量, publisher: 今周刊, date: 2026-03 }
+  - { title: 月相生活指南：隨著月亮的盈缺，重回內在的自然節奏, publisher: 積木文化, date: 2025-12 }
+  - { title: 訂閱變現：打造10萬潛在客戶，讓會員價值飆3倍！揭開高轉換率、高續訂率的祕密, publisher: 商周出版, date: 2025-08, award: 金書獎 }
+  - { title: 把經濟學剝光光：從生活小事中搞懂世界運作邏輯, publisher: 今周刊, date: 2025-07, award: 金書獎 }
+  - { title: 天生賭徒：博彩教皇的傳奇一生，破解人生與賭局的勝負關鍵, publisher: 今周刊, date: 2025-04 }
+  - { title: 歐巴馬資深文膽的精準表達課：從50-25-25準備法、BBQ法則到AI工具，讓你從公開演講到日常溝通都一手掌握, en: "Say It Well: Find Your Voice, Speak Your Mind, Inspire Any Audience", publisher: 商周出版, date: 2024-12 }
+  - { title: 行走在世界之巔：喜馬拉雅步道, en: "Wanderlust Himalaya: Hiking on Top of the World", publisher: 積木文化, date: 2024-09 }
+  - { title: 連結天使之光：與天使一起工作，治癒身心、創造魔法、顯化奇蹟, en: "Angelic Lightwork: Magic & Manifestation with the Angels", publisher: 時報出版, date: 2024-07 }
+  - { title: 逆襲談判：哥倫比亞大學教授的15個協商工具，扭轉劣勢、提升籌碼，達成你想要的結果！, en: "15 Tools to Turn the Tide: A Step-by-Step Playbook for Empowered Negotiating", publisher: 商周出版, date: 2024-04 }
+  - { title: 人類怎麼學：比大數據更重要的事，人類學教你顛覆成見、突破盲點的洞察思考, en: "Think Like an Anthropologist", publisher: 聯經出版, date: 2023-10 }
+  - { title: 金字塔心智模式：改善日常表現、人際關係與身心健康，邁向自信、幸福與成功的心智練習, en: "The Pyramid Mind", publisher: 商周出版, date: 2023-08 }
+  - { title: 揭密保險：為風險與人命定價的商業模式，如何打造與摧毀這個億萬帝國？, en: "Risky Business: Why Insurance Markets Fail and What to Do About It", publisher: 商周出版, date: 2023-05 }
+  - { title: 為什麼不能一直印鈔票？：英國央行經濟學家用10個日常問題，解答你對經濟現況的疑惑, en: "Can't We Just Print More Money?: Economics in Ten Simple Questions", publisher: 商周出版, date: 2023-01 }
+  - { title: 愛、健康與金錢的祕密：大師課程, en: "The Secret to Love, Health, and Money: A Masterclass", publisher: 方智出版, date: 2022-08 }
+  - { title: 每個人都能打造線上課！：知識付費時代，你會的每一種本事，都能為你賺進滾滾睡後收入！, en: "Make Money While You Sleep", publisher: 商周出版, date: 2022-07 }
+  - { title: NFT狂潮：進入元宇宙最關鍵的入口，擁抱千億商機的數位經濟革命, en: "The NFT Handbook: How to Create, Sell and Buy Non-Fungible Tokens", publisher: 商周出版, date: 2021-06 }
+  - { title: 全球化的故事：用經濟把世界連結起來的10個人, en: "From Silk to Silicon: The Story of Globalization Through Ten Extraordinary Lives", publisher: 如果出版, date: 2021-03 }
+  - { title: 撕下標籤 成就最好的自己：當你不再侷限於自己或社會的設定，就能收穫所有的可能, en: "Find Your Path: Unconventional Lessons from 36 Leading Scientists and Engineers", publisher: 商周出版, date: 2021-01 }
+  - { title: 臺灣兩個閩客村落的親屬與社區：新附作者口述史及田野地現況, en: "Kinship and Community in Two Chinese Villages", publisher: 客委會客家文化發展中心, date: 2021-01 }
+  - { title: 工作上90%的煩惱都來自人際關係：安侯建業會計師事務所合夥人親授50年經驗的職場人際法則, en: "Making Relationships Work at Work", publisher: 商周出版, date: 2020-11 }
+  - { title: 科學驗證、保證有效的寶寶熟睡法, en: "How Babies Sleep", publisher: 如何出版, date: 2020-08 }
+  - { title: 莫里斯不煩了：7天引導孩子排除恐懼、焦慮等壞情緒, en: "Brave Morris: A Week Upside Down", publisher: 如何出版, date: 2020-07 }
+  - { title: 慢性病生酮療法：用酮體控制胰島素，管理胰島素就是管理健康, en: "The Keto Cure", publisher: 如果出版, date: 2020-06 }
+  - { title: 奇蹟公式：我三星期從半身不遂中站起，一年抗癌成功，從破產到財富自由的關鍵, en: "The Miracle Equation", publisher: 究竟出版, date: 2019-07 }
+  - { title: 死亡可以教我們什麼：圓滿生命的五個邀請, en: "The Five Invitations: Discovering What Death Can Teach Us About Living Fully", publisher: 如果出版, date: 2018-10 }
+  - { title: 我的第一份工作：那些人、那些工作教我們的事, en: "First Jobs: True Tales of Bad Bosses, Quirky Coworkers, Big Breaks, and Small Paychecks", publisher: 如果出版, date: 2018-08 }
+  - { title: 撕開的真相：我願為嫌犯辯護, en: "The Fact of a Body", publisher: 開學文化, date: 2018-06 }
+  - { title: IELTS雅思口說里茲螞蟻英文說話術, publisher: 眾文圖書, date: 2018-03 }
+  - { title: 七副骸骨：人類化石的故事, en: "Seven Skeletons: The Evolution of the World's Most Famous Human Fossils", publisher: 如果出版, date: 2018-02 }
+  - { title: TOEIC L&R TEST多益聽力解密（2018新制）, publisher: 眾文圖書, date: 2018-02 }
+  - { title: TOEIC L&R TEST多益閱讀解密（2018新制）, publisher: 眾文圖書, date: 2018-01 }
+  - { title: 如何準備英語面試：成功面試的專業指南, en: "English for Successful Job Interviews", publisher: 眾文圖書, date: 2017-11 }
+  - { title: TOEIC L&R TEST金色證書：模擬測驗1-2（2018新制）, publisher: 眾文圖書, date: 2017-01 }
+  - { title: 醫生沒告訴你的，吃藥時的飲食禁忌指南, en: "Don't Eat This If You're Taking That", publisher: 如果出版, date: 2015-08 }
+  - { title: 遇到老外英語這樣說, note: 共同作者, publisher: 晨星出版, date: 2014-09 }
+  - { title: 三個月外語流利術, en: "Fluent in 3 Months", publisher: 晨星出版, date: 2014-08 }
+  - { title: 成功會議術, en: "Read This Before Your Next Meeting", publisher: 晨星出版, date: 2013-10 }
+  - { title: 退休暫借問, en: "Passing Through", publisher: 晨星出版, date: 2013-02 }
+  - { title: 科學，OK！, en: "Confidence in Science", publisher: 暢談文化, date: 2012-05 }
+  - { title: 威尼斯共和國的故事：西歐的屏障與文明的門戶, en: "Venice: The Hinge of Europe, 1081-1797", publisher: 廣場出版, date: 2012-05 }
+
+others:
+  - { title: 福爾摩沙大百科, role: 撰文, publisher: 野人, year: 2006 }
+  - { title: 《小達文西》系列專欄（冠軍運動會、世界大日子、超人運動員、台灣新住民、達人帶路、豪門家族、城市雕像故事等）, role: 特約作者 }
+  - { title: 全民健保20週年叢書系列：杏林暖流, role: 編輯, publisher: 衛生福利部中央健保署, year: 2014 }
+  - { title: 坦克車外, role: 編輯, publisher: 晨星, year: 2012 }
+  - { title: 烹飪、菜餚與階級, role: 責任編輯, publisher: 廣場, year: 2012 }

@@ -1,0 +1,29 @@
+<section class="trip-map" aria-label="足跡地圖">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <div id="trip-map"></div>
+  <p class="trip-map-note" id="trip-map-note"></p>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      var trips = {{ site.data.trips | jsonify }};
+      var map = L.map('trip-map', { scrollWheelZoom: false, worldCopyJump: true, minZoom: 2 }).setView([30, 70], 2);
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd', maxZoom: 12
+      }).addTo(map);
+      var pin = L.divIcon({ className: 'trip-pin', html: '<span></span>', iconSize: [16, 16], iconAnchor: [8, 8], popupAnchor: [0, -8] });
+      var countries = {}, n = 0, bounds = [];
+      trips.forEach(function (t) {
+        var link = t.post ? '/travel/' + t.post + '/' : (t.tag ? '/travel/?tag=' + encodeURIComponent(t.tag) : '');
+        t.places.forEach(function (p) {
+          countries[p.c] = 1; n++; bounds.push(p.ll);
+          var html = '<strong>' + t.name + '</strong><br><span class="pop-meta">' + t.year + ' · ' + p.n + '（' + p.c + '）</span>' +
+            (link ? '<br><a href="' + link + '">看這趟的文章 →</a>' : '<br><span class="pop-meta">文章還在路上</span>');
+          L.marker(p.ll, { icon: pin, title: p.n }).addTo(map).bindPopup(html);
+        });
+      });
+      document.getElementById('trip-map-note').textContent =
+        '已插上 ' + n + ' 根圖釘，走過 ' + Object.keys(countries).length + ' 個國家和地區，持續增加中。點圖釘看看那趟旅行。';
+    })();
+  </script>
+</section>

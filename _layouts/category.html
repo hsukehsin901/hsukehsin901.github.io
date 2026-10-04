@@ -10,6 +10,8 @@ layout: default
     <p class="chapter-count">共 {{ posts | size }} 篇</p>
   </header>
 
+  {% if page.category == 'travel' %}{% include travel-map.html %}{% endif %}
+
   {% assign subs = site.category_tags[page.category] %}
   {% if subs and subs.size > 1 %}
   <div class="filters" role="group" aria-label="子分類">

@@ -147,3 +147,20 @@ main { padding: 0 1rem 2rem; }
   .post-head h1 { font-size: 1.5rem; }
   .chapter-head h1 { font-size: 1.9rem; }
 }
+
+/* ---------- 留言區 ---------- */
+.comments { margin: 0 0 2.5rem; }
+.comments-title { font-size: .9rem; letter-spacing: .5em; color: var(--muted); text-align: center; font-weight: 600; margin: 0 0 1.2rem; }
+#waline {
+  --waline-font-size: .95rem;
+  --waline-theme-color: var(--accent);
+  --waline-active-color: var(--accent);
+  --waline-color: var(--ink);
+  --waline-bg-color: var(--paper);
+  --waline-bg-color-light: var(--desk);
+  --waline-border-color: var(--line);
+  --waline-info-color: var(--muted);
+  --waline-badge-color: var(--accent);
+  font-family: var(--serif);
+}
+#waline .wl-btn.primary { color: var(--paper); }

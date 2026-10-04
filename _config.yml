@@ -43,6 +43,9 @@ category_tags:
   musings: [死用說明, 周公, 日常]
   translation: [找碴英語]
 
+# 留言系統（Waline）的伺服器網址；留空就不顯示留言區
+waline_server: ""
+
 exclude:
   - README.md
   - .pages.yml

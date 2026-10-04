@@ -195,8 +195,7 @@ main { padding: 0 1rem 2rem; }
 
 /* ---------- 足跡地圖 ---------- */
 .trip-map { margin: 0 -1.5rem 2.2rem; }
-#trip-map { height: 380px; border-radius: 2px; border: 1px solid var(--line); background: #efe8da; z-index: 0; }
-#trip-map .leaflet-tile-pane { filter: sepia(.35) saturate(.75) brightness(1.02); }
+#trip-map { height: 380px; border-radius: 2px; border: 1px solid var(--line); background: #e4dccb; z-index: 0; }
 .trip-pin span { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid #fbf7ee; box-shadow: 0 1px 3px rgba(0,0,0,.35); }
 .trip-pin:hover span { transform: scale(1.25); }
 .trip-map-note { text-align: center; font-size: .8rem; color: var(--muted); margin: .6rem 0 0; }

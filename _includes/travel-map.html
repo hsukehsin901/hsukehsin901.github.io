@@ -1,44 +1,67 @@
 <section class="trip-map" aria-label="足跡地圖">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="{{ '/assets/lib/leaflet/leaflet.css' | relative_url }}">
   <div id="trip-map"></div>
   <p class="trip-map-note" id="trip-map-note"></p>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ '/assets/lib/leaflet/leaflet.js' | relative_url }}"></script>
+  <script src="{{ '/assets/lib/topojson-client.min.js' | relative_url }}"></script>
   <script>
     (function () {
       var trips = {{ site.data.trips | jsonify }};
-      var map = L.map('trip-map', { scrollWheelZoom: false, worldCopyJump: true, minZoom: 2 }).setView([30, 70], 2);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd', maxZoom: 12
-      }).addTo(map);
+      var map = L.map('trip-map', { scrollWheelZoom: false, minZoom: 1, maxZoom: 7, zoomSnap: .5 }).setView([28, 95], 2.5);
+      map.attributionControl.setPrefix(false).addAttribution('地圖：<a href="https://www.naturalearthdata.com/">Natural Earth</a>');
+      // 底圖：自己畫的世界地圖（不靠外部地圖服務）
+      var EN = { 新加坡:'Singapore', 泰國:'Thailand', 印尼:'Indonesia', 韓國:'South Korea', 關島:'Guam', 澳門:'Macao', 菲律賓:'Philippines',
+        香港:'Hong Kong', 法國:'France', 西班牙:'Spain', 中國:'China', 日本:'Japan', 柬埔寨:'Cambodia', 荷蘭:'Netherlands', 比利時:'Belgium',
+        盧森堡:'Luxembourg', 冰島:'Iceland', 越南:'Vietnam', 紐西蘭:'New Zealand', 埃及:'Egypt', 奧地利:'Austria', 德國:'Germany',
+        瑞士:'Switzerland', 義大利:'Italy', 馬來西亞:'Malaysia', 台灣:'Taiwan' };
+      var visited = {};
+      trips.forEach(function (t) { t.places.forEach(function (p) { if (EN[p.c]) visited[EN[p.c]] = 1; }); });
+      map.createPane('land'); map.getPane('land').style.zIndex = 200;
+      fetch('{{ "/assets/data/world-50m.json" | relative_url }}').then(function (r) { return r.json(); }).then(function (topo) {
+        L.geoJSON(topojson.feature(topo, topo.objects.countries), {
+          pane: 'land', interactive: false,
+          style: function (f) {
+            var v = visited[f.properties.name];
+            return { color: v ? '#c98b78' : '#d8ccb4', weight: .6, fillColor: v ? '#efd3c6' : '#fbf7ee', fillOpacity: 1 };
+          }
+        }).addTo(map);
+      });
       var pin = L.divIcon({ className: 'trip-pin', html: '<span></span>', iconSize: [16, 16], iconAnchor: [8, 8], popupAnchor: [0, -8] });
+      // 圖釘位置：除了中國依城市，其他國家一國一根
+      var REP = { 日本:[36.2,138.25], 韓國:[36.5,127.9], 泰國:[15.4,101.0], 越南:[16.0,107.5], 印尼:[-7.3,110.0], 菲律賓:[12.5,122.5],
+        馬來西亞:[4.2,101.9], 新加坡:[1.35,103.82], 香港:[22.32,114.17], 澳門:[22.2,113.54], 關島:[13.44,144.79], 柬埔寨:[12.6,104.9],
+        法國:[46.6,2.4], 西班牙:[40.4,-3.7], 荷蘭:[52.2,5.3], 比利時:[50.6,4.6], 盧森堡:[49.8,6.1], 冰島:[64.9,-18.6],
+        奧地利:[47.5,14.3], 德國:[51.1,10.4], 瑞士:[46.8,8.2], 義大利:[43.0,12.5], 埃及:[26.8,30.8], 紐西蘭:[-41.3,174.0], 台灣:[23.7,121.0] };
       var spots = {}, countries = {}, abroad = 0;
       trips.forEach(function (t) {
         if (!t.domestic) abroad++;
         var link = t.post ? '/travel/' + t.post + '/' : (t.tag ? '/travel/?tag=' + encodeURIComponent(t.tag) : '');
+        var seen = {};
         t.places.forEach(function (p) {
           if (p.c !== '台灣') countries[p.c] = 1;
-          var key = p.n;
-          if (!spots[key]) spots[key] = { p: p, visits: [] };
+          var byCity = p.c === '中國';
+          var key = byCity ? p.n : p.c;
+          if (seen[key]) return; seen[key] = 1;
+          if (!spots[key]) spots[key] = { name: byCity ? p.n + '（中國）' : p.c, ll: byCity ? p.ll : (REP[p.c] || p.ll), visits: [] };
           spots[key].visits.push({ t: t, link: link });
         });
       });
       Object.keys(spots).forEach(function (k) {
         var s = spots[k], v = s.visits;
-        var html = '<strong>' + s.p.n + '</strong><span class="pop-meta">（' + s.p.c + '）' + (v.length > 1 ? '・去過 ' + v.length + ' 次' : '') + '</span><ul class="pop-list">' +
+        var html = '<strong>' + s.name + '</strong><span class="pop-meta">' + (v.length > 1 ? '・去過 ' + v.length + ' 次' : '') + '</span><ul class="pop-list">' +
           v.map(function (x) {
             var t = x.t, meta = [t.days ? t.days + ' 天' : '', t.group ? '跟團' : ''].filter(Boolean).join('・');
             var label = t.year + '　' + t.name + (meta ? '<span class="pop-meta">（' + meta + '）</span>' : '');
             return '<li>' + (x.link ? '<a href="' + x.link + '">' + label + ' →</a>' : label) + '</li>';
           }).join('') + '</ul>';
-        L.marker(s.p.ll, { icon: v.length > 1 ? bigPin(v.length) : pin, title: s.p.n }).addTo(map).bindPopup(html, { maxHeight: 260 });
+        L.marker(s.ll, { icon: v.length > 1 ? bigPin(v.length) : pin, title: s.name }).addTo(map).bindPopup(html, { maxHeight: 260 });
       });
       function bigPin(n) {
-        var z = Math.min(26, 14 + n * 1.5);
+        var z = Math.min(30, 16 + n * .7);
         return L.divIcon({ className: 'trip-pin many', html: '<span style="width:' + z + 'px;height:' + z + 'px">' + n + '</span>', iconSize: [z, z], iconAnchor: [z / 2, z / 2], popupAnchor: [0, -z / 2] });
       }
       document.getElementById('trip-map-note').textContent =
-        abroad + ' 趟出國旅行，走過 ' + Object.keys(countries).length + ' 個國家和地區、' + Object.keys(spots).length + ' 個地方。數字大的圖釘代表去過好幾次，點點看。';
+        abroad + ' 趟出國旅行，走過 ' + Object.keys(countries).length + ' 個國家和地區。圖釘上的數字是去過的次數，點點看。';
     })();
   </script>
 </section>

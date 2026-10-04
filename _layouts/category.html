@@ -26,7 +26,7 @@ layout: default
       {% for post in y.items %}
       <li data-tags="|{{ post.tags | join: '|' }}|">
         <a href="{{ post.url | relative_url }}">
-          <span class="ix-title">{{ post.title }}</span>
+          <span class="ix-title">{{ post.title | split: '｜' | first }}</span>
           <span class="leader" aria-hidden="true"></span>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-m/%-d" }}</time>
         </a>

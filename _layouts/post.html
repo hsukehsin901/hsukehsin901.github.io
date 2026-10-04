@@ -8,7 +8,9 @@ layout: default
 <article class="sheet post">
   <header class="post-head">
     <p class="ch-no"><a href="{{ '/' | append: cat | append: '/' | relative_url }}">{{ site.chapter_numbers[cat] }} · {{ site.category_names[cat] }}</a></p>
-    <h1>{{ page.title }}</h1>
+    {% assign tparts = page.title | split: '｜' %}
+    <h1>{{ tparts[0] }}</h1>
+    {% if tparts.size > 1 %}<p class="post-sub">{{ tparts[1] }}</p>{% endif %}
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %-m 月 %-d 日" }}</time>
       {% if site.waline_server != "" %}<span class="views-inline">· 閱讀 <span class="waline-pageview-count" data-path="{{ page.url }}">—</span> 次</span>{% endif %}
@@ -55,7 +57,7 @@ layout: default
   {% endif %}
 
   <nav class="pager" aria-label="上一篇與下一篇">
-    {% if older_i < list.size %}{% assign o = list[older_i] %}<a class="prev" href="{{ o.url | relative_url }}"><small>上一篇</small>{{ o.title }}</a>{% else %}<span></span>{% endif %}
-    {% if i > 0 %}{% assign n = list[newer_i] %}<a class="next" href="{{ n.url | relative_url }}"><small>下一篇</small>{{ n.title }}</a>{% endif %}
+    {% if older_i < list.size %}{% assign o = list[older_i] %}<a class="prev" href="{{ o.url | relative_url }}"><small>上一篇</small>{{ o.title | split: '｜' | first }}</a>{% else %}<span></span>{% endif %}
+    {% if i > 0 %}{% assign n = list[newer_i] %}<a class="next" href="{{ n.url | relative_url }}"><small>下一篇</small>{{ n.title | split: '｜' | first }}</a>{% endif %}
   </nav>
 </article>

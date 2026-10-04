@@ -163,3 +163,8 @@ main { padding: 0 1rem 2rem; }
   font-family: var(--serif);
 }
 #waline .wl-btn.primary { color: var(--paper); }
+
+/* 瀏覽次數 */
+.views { margin: 0 0 .3rem; letter-spacing: .1em; }
+.views-inline { margin-left: .3rem; }
+.waline-pageview-count { font-variant-numeric: tabular-nums; }

@@ -27,10 +27,18 @@
 
   <footer class="colophon">
     <p class="fleuron" aria-hidden="true">❦</p>
+    {% if site.waline_server != "" and page.layout != "post" %}<p class="views">{% if page.url == "/" %}首頁{% else %}這一頁{% endif %}已被翻開 <span class="waline-pageview-count" data-path="{{ page.url }}">—</span> 次</p>{% endif %}
     <p>© {{ 'now' | date: '%Y' }} {{ site.title }} · 2017 年起寫於臉書粉專，2026 年搬來這裡</p>
   </footer>
 
   <div class="lightbox" hidden><img alt=""></div>
+  {% if site.waline_server != "" %}
+  <script type="module">
+    // 瀏覽次數（Waline）：每開一次頁面加一
+    import { pageviewCount } from 'https://unpkg.com/@waline/client@v3/dist/pageview.js';
+    pageviewCount({ serverURL: '{{ site.waline_server }}', path: '{{ page.url }}' });
+  </script>
+  {% endif %}
   <script>
     // 點照片放大
     (function () {

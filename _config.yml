@@ -2,6 +2,7 @@ title: 找碴人生
 author: 版小二
 description: 讀童話找碴、出門旅行找碴、連做夢也在找碴。一個翻譯人的筆記本。
 lang: zh-Hant
+locale: zh_TW
 url: "https://hsukehsin901.github.io"
 baseurl: ""
 timezone: Asia/Taipei
@@ -45,6 +46,20 @@ category_tags:
 
 # 留言系統（Waline）的伺服器網址；留空就不顯示留言區
 waline_server: "https://zhaocha-comments.vercel.app"
+
+# SEO 與分享預覽
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+logo: /assets/images/og-default.jpg
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og-default.jpg
+feed:
+  posts_limit: 30
 
 exclude:
   - README.md

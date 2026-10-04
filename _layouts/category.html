@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<h1>{{ site.category_names[page.category] }}</h1>
+<p class="lead">{{ site.category_descriptions[page.category] }}</p>
+{% assign posts = site.categories[page.category] %}
+{% include post-list.html posts=posts %}

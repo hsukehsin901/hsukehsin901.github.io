@@ -1,0 +1,34 @@
+:root{--bg:#fbfaf7;--fg:#2b2b2b;--muted:#7a756d;--line:#e8e4dc;--accent:#8a5a3c}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1b19;--fg:#e6e2d9;--muted:#9a948a;--line:#33312d;--accent:#d9a37e}}
+*{box-sizing:border-box}
+html{font-size:18px}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.9;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  -webkit-text-size-adjust:100%}
+.wrap{max-width:40rem;margin:0 auto;padding:0 1.25rem}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.site-header{border-bottom:1px solid var(--line);padding:1.25rem 0 .75rem}
+.site-title{font-size:1.2rem;font-weight:700;color:var(--fg);display:block;margin-bottom:.4rem}
+.site-nav{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;font-size:.9rem}
+main{padding-top:2.5rem;padding-bottom:3.5rem;min-height:60vh}
+h1{font-size:1.7rem;line-height:1.4;margin:0 0 1rem}
+h2{font-size:1.25rem;margin:2.5rem 0 1rem}
+h3{font-size:1.05rem;margin:.1rem 0 .2rem}
+.lead,.meta,time,.empty{color:var(--muted)}
+.meta,time{font-size:.85rem}
+.cat-grid{list-style:none;padding:0;margin:2rem 0;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.cat-grid a{display:block;border:1px solid var(--line);border-radius:6px;padding:.9rem 1rem;color:var(--fg);height:100%}
+.cat-grid a:hover{border-color:var(--accent);text-decoration:none}
+.cat-grid strong{display:block;color:var(--accent)}
+.cat-grid span{font-size:.8rem;color:var(--muted);line-height:1.6;display:block}
+.post-list{list-style:none;padding:0;margin:0}
+.post-list li{padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.post-list p{margin:.2rem 0 0;color:var(--muted);font-size:.9rem;line-height:1.7}
+.tag{font-size:.75rem;border:1px solid var(--line);border-radius:3px;padding:0 .4rem;margin-left:.4rem;color:var(--muted)}
+.post .content{margin-top:1.5rem}
+.content p{margin:0 0 1.3rem}
+.content img{max-width:100%;height:auto;border-radius:4px;display:block;margin:1.5rem auto}
+.content blockquote{margin:1.5rem 0;padding-left:1rem;border-left:3px solid var(--line);color:var(--muted)}
+.site-footer{border-top:1px solid var(--line);padding:1.25rem 0;font-size:.8rem;color:var(--muted)}
+@media (max-width:480px){html{font-size:17px}.cat-grid{grid-template-columns:1fr}}

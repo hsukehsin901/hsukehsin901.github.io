@@ -1,0 +1,63 @@
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: posts
+    label: 文章
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, categories, date]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: layout
+        type: string
+        label: 版型
+        default: post
+        hidden: true
+      - name: title
+        type: string
+        label: 標題
+      - name: date
+        type: date
+        label: 日期
+        options:
+          time: true
+          format: "yyyy-MM-dd HH:mm:ss xxxx"
+      - name: categories
+        type: select
+        label: 分類
+        options:
+          multiple: true
+          values:
+            - { value: fairy-tales, label: 童話 }
+            - { value: travel, label: 旅遊 }
+            - { value: musings, label: 碎碎念 }
+            - { value: translation, label: 翻譯心得 }
+      - name: body
+        type: rich-text
+        label: 內容
+  - name: about
+    label: 關於我
+    type: file
+    path: about.md
+    fields:
+      - name: layout
+        type: string
+        default: default
+        hidden: true
+      - name: title
+        type: string
+        label: 標題
+      - name: permalink
+        type: string
+        hidden: true
+      - name: body
+        type: rich-text
+        label: 內容

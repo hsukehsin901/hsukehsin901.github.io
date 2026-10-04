@@ -36,10 +36,10 @@ content:
         options:
           multiple: true
           values:
-            - { value: fairy-tales, label: 童話 }
-            - { value: travel, label: 旅遊 }
-            - { value: musings, label: 碎碎念 }
-            - { value: translation, label: 翻譯心得 }
+            - { value: fairy-tales, label: 找碴童話 }
+            - { value: travel, label: 找碴世界 }
+            - { value: musings, label: 找碴人生 }
+            - { value: translation, label: 找碴英語教室 }
       - name: tags
         type: string
         label: 子分類（例如：格林童話、奧瑞行、周公、日常）

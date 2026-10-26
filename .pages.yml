@@ -30,6 +30,10 @@ content:
         options:
           time: true
           format: "yyyy-MM-dd HH:mm:ss xxxx"
+      - name: published
+        type: boolean
+        label: 發佈（關閉＝不顯示在網站上）
+        default: true
       - name: categories
         type: select
         label: 分類

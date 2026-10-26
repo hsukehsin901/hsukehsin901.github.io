@@ -1,0 +1,19 @@
+# 每天台灣時間 00:07 重建一次網站，讓設成未來日期的文章在當天自動上線
+name: 每日重建網站
+
+on:
+  schedule:
+    - cron: "7 16 * * *"
+  workflow_dispatch:
+
+permissions:
+  pages: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 要求 GitHub Pages 重新建置
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"

@@ -183,6 +183,7 @@ main { padding: 0 1rem 2rem; }
 .b-sub { font-size: .85rem; color: var(--muted); }
 .b-en { font-size: .8rem; color: var(--muted); font-style: italic; letter-spacing: 0; }
 .b-meta { font-size: .78rem; color: var(--muted); margin-top: .15rem !important; letter-spacing: .05em; }
+.b-buy { font-size: .78rem; color: var(--muted); margin-top: .15rem !important; letter-spacing: .05em; }
 .award { display: inline-block; margin-left: .5rem; font-size: .72rem; font-weight: 600; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 3px; padding: 0 .35rem; line-height: 1.6; transform: rotate(-3deg) translateY(-.1em); }
 .book.awarded { background: linear-gradient(90deg, var(--accent-soft), transparent 70%); padding-left: .6rem; border-radius: 2px; }
 

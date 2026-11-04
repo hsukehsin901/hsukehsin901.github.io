@@ -47,6 +47,12 @@ category_tags:
 # 留言系統（Waline）的伺服器網址；留空就不顯示留言區
 waline_server: "https://zhaocha-comments.vercel.app"
 
+# 博客來策略聯盟：書架頁的購買連結由這裡的編號組出來
+# campaign 是聯盟後台產生連結時帶的活動代碼（ap-年月），之後有更新時改這一行即可
+books_affiliate:
+  id: hsukehsin
+  campaign: ap-202611
+
 # SEO 與分享預覽
 plugins:
   - jekyll-seo-tag

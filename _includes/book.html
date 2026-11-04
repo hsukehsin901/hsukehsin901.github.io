@@ -6,5 +6,12 @@
   <p class="b-title">《{{ main }}》{% if b.award %}<span class="award">{{ b.award }}</span>{% endif %}</p>
   {% if sub != "" %}<p class="b-sub">{{ sub }}</p>{% endif %}
   {% if b.en %}<p class="b-en">{{ b.en }}</p>{% endif %}
+  {%- if b.bk or b.ebk %}
+  {%- assign af = site.books_affiliate %}
+  <p class="b-buy">博客來：
+    {%- if b.bk %}<a href="https://www.books.com.tw/exep/assp.php/{{ af.id }}/products/{{ b.bk }}?utm_source={{ af.id }}&amp;utm_medium=ap-books&amp;utm_content=recommend&amp;utm_campaign={{ af.campaign }}" target="_blank" rel="sponsored nofollow noopener">紙本</a>{% endif %}
+    {%- if b.bk and b.ebk %} · {% endif %}
+    {%- if b.ebk %}<a href="https://www.books.com.tw/exep/assp.php/{{ af.id }}/products/{{ b.ebk }}?utm_source={{ af.id }}&amp;utm_medium=ap-books&amp;utm_content=recommend&amp;utm_campaign={{ af.campaign }}" target="_blank" rel="sponsored nofollow noopener">電子書</a>{% endif %}</p>
+  {%- endif %}
   <p class="b-meta">{{ b.publisher }} · {{ b.date | replace: '-', '.' }}{% if b.note %} · {{ b.note }}{% endif %}</p>
 </li>

@@ -8,8 +8,10 @@ authored:
     role: 作者（筆名：小摳）
 
 translations:
+  - { title: 中國主宰全球經濟的戰略：破解90%過剩產能模型，看懂中國改寫全球競爭規則的布局, en: "China’s 90% Model: China Has America by the Throat: Here’s How to Fight Back and Win", note: 合譯 · 預計 11/12 上市, publisher: 商周出版, date: 2026-11, bk: "0011067045" }
   - { title: 黃金如何驅動世界？：從地緣博弈到虛擬貨幣熱潮，看懂永恆金屬鑄造全球財富規則的力量, publisher: 今周刊, date: 2026-03, bk: "0011047464", ebk: "E050324310" }
   - { title: 月相生活指南：隨著月亮的盈缺，重回內在的自然節奏, publisher: 積木文化, date: 2025-12, bk: "0011038197", ebk: "E050306239" }
+  - { title: 能量法則：抵禦負面振動頻率，找回生命能量，掌握自己的人生主導權, en: "Energy Rules: Deflect Negative Vibrations and Own Your Energy", publisher: 時報出版, date: 2025-09, bk: "0011032334", ebk: "E050293766" }
   - { title: 訂閱變現：打造10萬潛在客戶，讓會員價值飆3倍！揭開高轉換率、高續訂率的祕密, publisher: 商周出版, date: 2025-08, award: 金書獎, bk: "0011028323", ebk: "E050276890" }
   - { title: 把經濟學剝光光：從生活小事中搞懂世界運作邏輯, publisher: 今周刊, date: 2025-07, award: 金書獎, bk: "0011026484", ebk: "E050275712" }
   - { title: 天生賭徒：博彩教皇的傳奇一生，破解人生與賭局的勝負關鍵, publisher: 今周刊, date: 2025-04, bk: "0011019147", ebk: "E050260713" }
@@ -24,16 +26,20 @@ translations:
   - { title: 愛、健康與金錢的祕密：大師課程, en: "The Secret to Love, Health, and Money: A Masterclass", publisher: 方智出版, date: 2022-08, bk: "0010930768", ebk: "E050138255" }
   - { title: 每個人都能打造線上課！：知識付費時代，你會的每一種本事，都能為你賺進滾滾睡後收入！, en: "Make Money While You Sleep", publisher: 商周出版, date: 2022-07, bk: "0010945867", ebk: "E050154962" }
   - { title: NFT狂潮：進入元宇宙最關鍵的入口，擁抱千億商機的數位經濟革命, en: "The NFT Handbook: How to Create, Sell and Buy Non-Fungible Tokens", publisher: 商周出版, date: 2021-06, bk: "0010918466", ebk: "E050124786" }
+  - { title: New TOEIC TEST多益聽力密集特訓, note: 合譯, publisher: 眾文圖書, date: 2021-04, bk: "0010888731" }
   - { title: 全球化的故事：用經濟把世界連結起來的10個人, en: "From Silk to Silicon: The Story of Globalization Through Ten Extraordinary Lives", publisher: 如果出版, date: 2021-03 }
+  - { title: New TOEIC TEST多益閱讀密集特訓, note: 合譯, publisher: 眾文圖書, date: 2021-02, bk: "0010882887" }
   - { title: 撕下標籤 成就最好的自己：當你不再侷限於自己或社會的設定，就能收穫所有的可能, en: "Find Your Path: Unconventional Lessons from 36 Leading Scientists and Engineers", publisher: 商周出版, date: 2021-01, bk: "0010885351" }
   - { title: 臺灣兩個閩客村落的親屬與社區：新附作者口述史及田野地現況, en: "Kinship and Community in Two Chinese Villages", publisher: 客委會客家文化發展中心, date: 2021-01, bk: "0010914913" }
   - { title: 工作上90%的煩惱都來自人際關係：安侯建業會計師事務所合夥人親授50年經驗的職場人際法則, en: "Making Relationships Work at Work", publisher: 商周出版, date: 2020-11 }
+  - { title: TOEIC L&R TEST多益聽力模測解密, note: 合譯, publisher: 眾文圖書, date: 2020-10, bk: "0010871458" }
   - { title: 科學驗證、保證有效的寶寶熟睡法, en: "How Babies Sleep", publisher: 如何出版, date: 2020-08, bk: "0010876401" }
   - { title: 莫里斯不煩了：7天引導孩子排除恐懼、焦慮等壞情緒, en: "Brave Morris: A Week Upside Down", publisher: 如何出版, date: 2020-07 }
   - { title: 慢性病生酮療法：用酮體控制胰島素，管理胰島素就是管理健康, en: "The Keto Cure", publisher: 如果出版, date: 2020-06 }
   - { title: 奇蹟公式：我三星期從半身不遂中站起，一年抗癌成功，從破產到財富自由的關鍵, en: "The Miracle Equation", publisher: 究竟出版, date: 2019-07 }
-  - { title: 死亡可以教我們什麼：圓滿生命的五個邀請, en: "The Five Invitations: Discovering What Death Can Teach Us About Living Fully", publisher: 如果出版, date: 2018-10, bk: "0011030658", ebk: "E050289378" }
+  - { title: 死亡可以教我們什麼：圓滿生命的五個邀請, en: "The Five Invitations: Discovering What Death Can Teach Us About Living Fully", note: 合譯, publisher: 如果出版, date: 2018-10, bk: "0011030658", ebk: "E050289378" }
   - { title: 我的第一份工作：那些人、那些工作教我們的事, en: "First Jobs: True Tales of Bad Bosses, Quirky Coworkers, Big Breaks, and Small Paychecks", publisher: 如果出版, date: 2018-08 }
+  - { title: TOEIC L&R TEST多益文法解密（全新制）, note: 合譯, publisher: 眾文圖書, date: 2018-07, bk: "0010792891" }
   - { title: 撕開的真相：我願為嫌犯辯護, en: "The Fact of a Body", publisher: 開學文化, date: 2018-06, bk: "0010797308" }
   - { title: IELTS雅思口說里茲螞蟻英文說話術, publisher: 眾文圖書, date: 2018-03, bk: "0010789284" }
   - { title: 七副骸骨：人類化石的故事, en: "Seven Skeletons: The Evolution of the World's Most Famous Human Fossils", publisher: 如果出版, date: 2018-02 }

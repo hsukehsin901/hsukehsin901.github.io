@@ -1,6 +1,6 @@
 # 找碴人生
 
-版小二的部落格，網址：https://hsukehsin901.github.io
+版小二的部落格，網址：https://kehsin.com
 
 ## 怎麼寫新文章
 
